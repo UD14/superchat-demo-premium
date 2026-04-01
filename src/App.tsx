@@ -368,7 +368,21 @@ export default function App() {
               />
               <button onClick={handleNameSubmit} className="premium-action-btn">SET</button>
             </div>
-            {viewerName && <p className="id-active">ID: {viewerName}</p>}
+            {viewerName && (
+              <div className="id-active flex items-center justify-between">
+                <span>ID: {viewerName}</span>
+                <a 
+                  href={`https://www.youtube.com/results?search_query=${encodeURIComponent(selectedChar.name)}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-xs text-red-500 hover:text-red-400 flex items-center gap-1 font-bold"
+                  title={`${selectedChar.name} を YouTube で検索`}
+                >
+                  <span className="text-[10px]">YouTubeで検索</span>
+                  <span>↗</span>
+                </a>
+              </div>
+            )}
           </div>
 
           <div className="glass-panel superchat-actions">
@@ -430,7 +444,7 @@ export default function App() {
                   <h5>🔥 熱狂の渦！</h5>
                   <p>本物のスパチャで、さらに熱く応援しよう。</p>
                   <a 
-                    href="https://www.youtube.com/" 
+                    href={`https://www.youtube.com/results?search_query=${encodeURIComponent(selectedChar.name)}`}
                     target="_blank" 
                     rel="noreferrer" 
                     className="cta-btn-red"
